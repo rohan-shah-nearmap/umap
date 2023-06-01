@@ -20,16 +20,13 @@ requirements:
     # tools required to actually run the build
     # ---
     - ai-systems-pins 2023.04.5 minor
-    - python
-    - pip
     - numpy 1.23.*
     - scipy
     - scikit-learn
-    - numba >= 0.51.2
-    - pynndescent >= 0.5.10
+    - numba >=0.51.2
+    - pynndescent >=0.5.10
     - tbb
     - tqdm
-  host:
     - python
     - pip
   run:
