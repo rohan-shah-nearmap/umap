@@ -1,0 +1,63 @@
+{% set name = "umap-learn" %}
+{% set version = environ.get('UMAP_VERSION', '0.0.0') %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  - git_url: ../
+
+build:
+  script_env:
+    - UMAP_VERSION
+  noarch: python
+  number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
+
+requirements:
+  build:
+    # ---
+    # tools required to actually run the build
+    # ---
+    - ai-systems-pins 2023.04.5 minor
+    - python
+    - pip
+    - numpy 1.23.*
+    - scipy
+    - scikit-learn
+    - numba >= 0.51.2
+    - pynndescent >= 0.5.10
+    - tbb
+    - tqdm
+  host:
+    - python
+    - pip
+  run:
+    - pip
+    - python
+
+test:
+  imports:
+    - umap
+  requires:
+    - pytest
+    - pytest-cov
+    - pytest-runner
+    - nbval
+    - numpy
+  source_files:
+    - umap/tests
+    - .conda  # for getting .coveragerc
+
+about:
+  home: https://github.com/rohan-shah-nearmap/umap.git
+  license: ©
+  license_family: MIT
+  license_file: ''
+  summary: Umap fork
+  description:
+  doc_url: ''
+  dev_url: ''
+
+extra:
+  recipe-maintainers: ''

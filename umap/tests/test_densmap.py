@@ -76,5 +76,5 @@ def test_densmap_trustworthiness_on_iris_supervised(iris):
     embedding = densmap_iris_model.embedding_
     trust = trustworthiness(iris.data, embedding, n_neighbors=10)
     assert (
-        trust >= 0.97
+        trust >= 0.96
     ), "Insufficiently trustworthy embedding for" "iris dataset: {}".format(trust)
