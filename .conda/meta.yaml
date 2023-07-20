@@ -19,13 +19,13 @@ requirements:
     # ---
     # tools required to actually run the build
     # ---
-    - ai-systems-pins 2023.04.5 minor
+    - ai-systems-pins 2023.07.0 minor
     - tbb
     - python
     - pip
   run:
     - python
-    - numpy 1.23.*
+    - numpy
     - scipy
     - scikit-learn
     - numba >=0.51.2
